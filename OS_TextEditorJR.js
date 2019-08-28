@@ -501,6 +501,7 @@ function OS_TextEditor() {
                 itemsNumber = i;
             }
             _this._itemWrapper.style = "z-index:"+itemsNumber;
+            _this._itemWrapper.focus();
         },
 
         // init function
@@ -568,7 +569,13 @@ function OS_TextEditor() {
             // check if we have multiple items, change z-index on focus
             if(document.querySelectorAll(".os_texteditor_wrapper").length > 1){
                 _this._itemTextWrapper.addEventListener('click', clickOnInputText);
+            } else {
+                _this._itemTextWrapper.addEventListener('click', function() {
+                    this.focus();
+                })
             }
+
+
             
             // console.log(_this);
         };
